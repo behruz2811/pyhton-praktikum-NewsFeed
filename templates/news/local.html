@@ -1,0 +1,23 @@
+{% extends 'news/base.html' %}
+{% load static %}
+
+{% block title %} Mahalliy xabarlar {% endblock title %}
+
+{% block content %}
+
+    {%  for news in local_news %}
+
+        <div class="single_post_content_right left_content single_post_content col-lg-8 col-md-8 col-sm-8">
+            <div class="spost_nav">
+                <div class="media wow fadeInDown">
+                    <a class="media-left" href="{{ news.get_absolute_url }}">
+                    <img src="{{ news.image.url }}" alt="{{ news.title }}">
+                    <h2 class="">{{ news.title }}</h2>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    {% endfor %}
+
+{% endblock content %}
