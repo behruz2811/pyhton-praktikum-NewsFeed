@@ -130,10 +130,10 @@ class NewsUpdateView(UpdateView):
     model = News
     template_name = 'crud/news_edit.html'
     fields = ('title', 'body', 'status', 'image', 'category')
-    success_url = reverse_lazy('home_page')
+    # success_url = reverse_lazy('home_page')
 
 
 class NewsDeleteView(DeleteView):
     model = News
     template_name = 'crud/news_delete.html'
-    success_url = reverse_lazy("news_delete_page")
+    success_url = reverse_lazy("home_page")
