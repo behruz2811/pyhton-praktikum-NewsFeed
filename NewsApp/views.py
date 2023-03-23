@@ -1,6 +1,8 @@
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
+from django.urls import reverse_lazy
 from django.views.generic import TemplateView, ListView
+from django.views.generic.edit import DeleteView, UpdateView, CreateView
 
 from .models import News, Category
 from .forms import ContactForm
@@ -53,17 +55,6 @@ class HomePageView(ListView):
         context['technology_news'] = News.publish.all().filter(category__name='Texnologiya').order_by('-publish_time')[
                                      :5]
         return context
-
-
-# def ContactPageView(request):
-#     form = ContactForm(request.POST or None)
-#     if request.method == 'POST' and form.is_valid():
-#         form.save()
-#         return HttpResponse('<h2>Biz bilan boglanganingiz uchun raxmat!</h2>')
-#     context = {
-#         'form': form,
-#     }
-#     return render(request, 'news/contact.html', context=context)
 
 
 class ContactPageView(TemplateView):
@@ -133,3 +124,16 @@ class TechnoNewsPage(ListView):
     def get_queryset(self):
         news = self.model.publish.all().filter(category__name="Texnologiya")
         return news
+
+
+class NewsUpdateView(UpdateView):
+    model = News
+    template_name = 'crud/news_edit.html'
+    fields = ('title', 'body', 'status', 'image', 'category')
+    success_url = reverse_lazy('home_page')
+
+
+class NewsDeleteView(DeleteView):
+    model = News
+    template_name = 'crud/news_delete.html'
+    success_url = reverse_lazy("news_delete_page")

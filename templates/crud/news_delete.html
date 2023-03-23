@@ -1,0 +1,13 @@
+{%  extends 'news/base.html' %}
+
+{% block title %}{{ news.title }}{% endblock title %}
+
+{%  block content %}
+
+    <h2 class="text-center">Yangilikni o'chirish</h2>
+    <form method="post">{% csrf_token %}
+        <p>{{ news.title | truncatewords:3 }}... sarlavhali yangilikni o'chirmoqchimisiz?</p>
+    </form>
+    <input type="submit" class="btn btn-info ml-2" value="Confirm">
+
+{% endblock content %}
