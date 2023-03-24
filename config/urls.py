@@ -21,7 +21,8 @@ from config import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('NewsApp.urls'))
+    path('', include('NewsApp.urls')),
+    path('account/', include('Accounts.urls'))
 ]
 
 if settings.DEBUG:
