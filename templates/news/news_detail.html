@@ -12,6 +12,10 @@
         </div>
 
     </div>
+    <div class="card-footer text-center">
+        <a href="{% url 'news_edit_page' news.slug %}">Tahrirlash</a> |
+        <a href="{% url 'news_delete_page' news.slug %}">O'chirish</a>
+    </div>
 
 
 {% endblock content %}
