@@ -34,3 +34,11 @@ def UserLoginView(request):
         'form': form
     }
     return render(request, 'registration/login.html', context)
+
+
+def DashboardView(request):
+    user = request.user
+    context = {
+        'user': user
+    }
+    return render(request, 'pages/user_profile.html', context)
