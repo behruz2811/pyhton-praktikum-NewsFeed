@@ -34,6 +34,11 @@
             </ul>
           </div>
           <div class="header_top_right">
+              {% if request.user.is_authenticated %}
+              <p><a href="{% url 'user-profile' %}" style="color: #0ab20a">Your Profile</a></p>
+              {% else %}
+              <p><a href="{% url 'login' %}" style="color: #269abc">Saytga kirish</a></p>
+              {% endif %}
             <p>{% now "jS F Y H:i" %}</p>
           </div>
         </div>
