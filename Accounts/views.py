@@ -21,7 +21,6 @@ def UserLoginView(request):
                     return HttpResponse('Muvaffaqiyatli login amalga oshirildi!')
                 else:
                     return HttpResponse("Sizning profilingiz faol holatda emas!")
-
             else:
                 return HttpResponse('Bunday foydalanuvchi topilmadi!')
         else:

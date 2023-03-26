@@ -1,5 +1,5 @@
 from django.db import models
-from django.urls import  reverse_lazy
+from django.urls import reverse_lazy
 from django.utils import timezone
 
 
@@ -44,7 +44,6 @@ class News(models.Model):
 
     class Meta:
         ordering = ['-publish_time']
-
 
     def __str__(self):
         return self.title
